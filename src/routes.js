@@ -7,6 +7,7 @@ import SessionController from './app/controllers/SessionController';
 import CategoryController from './app/controllers/CategoryController';
 import UserController from './app/controllers/UserController';
 import OrderController from './app/controllers/OrderController';
+import CreatePaymentIntentController from './app/controllers/stripe/CreatePaymentIntentController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -31,5 +32,7 @@ routes.put('/categories/:id', upload.single('file'), CategoryController.update);
 routes.post('/orders', OrderController.store);
 routes.put('/orders/:id', OrderController.update);
 routes.get('/orders', OrderController.index);
+
+routes.post('/create-payment-intent', CreatePaymentIntentController.store);
 
 export default routes;
