@@ -1,9 +1,12 @@
 import express from 'express';
-import routes from './routes';
-import { resolve } from 'node:path';
+import routes from './routes.js';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import cors from 'cors';
 
-import './database';
+import './database/index.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 class App {
   constructor() {
